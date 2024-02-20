@@ -12,35 +12,34 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
 1. (2 pts ea) **Asymptotic notation** (12 pts)
 
   - 1a. Is $2^{n+1} \in O(2^n)$? Why or why not? 
-.  
+.  Yes. 2^n+1 can be simplied to 2^n + 2^1 which is 2^n. In order for the function to be in the big 0 notation it cannot exceed the worst case. Here 2^n+1 is equivalent to O(2^n) making the answer true. It is within the bounds. 
 .  
 .  
 .  
 . 
   - 1b. Is $2^{2^n} \in O(2^n)$? Why or why not?     
 .  
-.  
+.  No. 2^2^n is double the exponential rate of 2^n, which is greater than the bounds of 2^n. This means that the function is not in O(2^n)
 .  
 .  
 .  
   - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?    
-.  
-.  
+.  No. n^1.01 grows polynomially at a faster rate than log^2 n. log relates to the halving or multiplying, of the numbers so regardless it wont be faster than n^1.01. 
 .  
 .  
 
   - 1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?  
-.  
-.  
+.  Yes. n^1.01 grows polynomially. Compared to the Omega(log^2 n), it is faster than it. So at the lower bounds (fastest run) time it is within it because n^1.01 is over it.
+.
 .  
 .  
   - 1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?  
-.  
+.  No. sqrt(n) grows faster than (log n)^3 which is the upper bound. So since it exceeds the upper bound it is not within O(log n)^3
 .  
 .  
 .  
   - 1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?  
-.  
+. Yes because it is faster than the lower bound of (log n)^3. Since it is faster it exceeds the lower bound.
 
 
 2. **SPARC to Python** (12 pts)
@@ -61,7 +60,7 @@ $$
   - 2a. (6 pts) Translate this to Python code -- fill in the `def foo` method in `main.py`  
 
   - 2b. (6 pts) What does this function do, in your own words?  
-
+  The base case checks if x is less than or equal to 1. then it calls foo again with x-1 and x-2 and sums the result. Basically meaning the recursive call, sums the two preceding numbers which are stated from -1 and -2.
 .  
 .  
 .  
@@ -92,8 +91,8 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
   - 3b. (4 pts) What is the Work and Span of this implementation?  
 
-.  
-.  
+.  work is  O(n) as its linear work n sequencing.
+.  span is O(n)
 .  
 .  
 .  
@@ -107,7 +106,8 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
   - 3d. (4 pts) What is the Work and Span of this sequential algorithm?  
 .  
-.  
+. work - O(n)
+  span - O(log n)
 .  
 .  
 .  
@@ -121,7 +121,8 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
 
   - 3e. (4 pts) Assume that we parallelize in a similar way we did with `sum_list_recursive`. That is, each recursive call spawns a new thread. What is the Work and Span of this algorithm?  
 
-.  
+.  work - O(n)
+   span - O(n)
 .  
 .  
 .  
